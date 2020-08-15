@@ -17,6 +17,7 @@ function solution(skill, skill_trees) {
         skills.shift();
       }
     }
+    // result 결과를 통해 같은지 카운트
     console.log(skills);
   }
   // console.log(skillSet);
