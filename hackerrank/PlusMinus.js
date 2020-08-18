@@ -3,11 +3,11 @@ function plusMinus(arr) {
   let pCount = 0; // positive value
   let nCount = 0; // negative value
   let zCount = 0; // zero value
-  for(let i = 0 ; i < arr.length; i++) {
+  for (let i = 0; i < arr.length; i++) {
     // positiive
-    if(arr[i] > 0 && Number.isInteger(arr[i])) {
+    if (arr[i] > 0 && Number.isInteger(arr[i])) {
       pCount++;
-    } else if(arr[i] < 0 && Number.isInteger(arr[i])) {
+    } else if (arr[i] < 0 && Number.isInteger(arr[i])) {
       // negative
       nCount++;
     } else {
@@ -20,4 +20,4 @@ function plusMinus(arr) {
   console.log((zCount / arr.length).toFixed(6));
 }
 
-plusMinus([-4, 3,-9, 0, 4, 1]);
+plusMinus([-4, 3, -9, 0, 4, 1]);
