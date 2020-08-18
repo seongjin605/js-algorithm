@@ -1,9 +1,9 @@
 function timeConversion(s) {
   let splitedData = s.split(":");
-  const result = splitedData.map((x, i) => {
+  const result = splitedData.map((x, i, arr) => {
     const parsed = parseInt(x);
     if (i === 0) {
-      return parsed + 12;
+      return s.toUpperCase().includes("PM") ? parsed + 12 : parsed;
     } else if (x.includes("PM") || x.includes("AM")) {
       return parsed;
     }
@@ -15,3 +15,5 @@ function timeConversion(s) {
 
 console.log(timeConversion("07:05:45PM"));
 console.log(timeConversion("06:55:55AM"));
+console.log(timeConversion("10:55:55AM"));
+console.log(timeConversion("10:55:55PM"));
