@@ -1,12 +1,11 @@
 function gradingStudents(grades) {
-  let result = [];
+  const result = [];
   for (let i = 0; i < grades.length; i++) {
-    let temp = Math.round(grades[i] / 5) * 5;
     if (grades[i] < 38) {
       result.push(grades[i]);
       continue;
     }
-    if (temp > grades[i]) {
+    if (grades[i] % 5 > 2) {
       result.push(grades[i] + 2);
     } else {
       result.push(grades[i]);
