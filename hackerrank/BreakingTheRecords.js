@@ -10,7 +10,7 @@ function breakingRecords(scores) {
 
   for (let i = 0; i < scores.length; i++) {
     if (scores[i] > max) {
-      max = scores[i + 1];
+      max = scores[i];
       highstScore++;
     } else if (scores[i] < min) {
       min = scores[i];
@@ -19,9 +19,9 @@ function breakingRecords(scores) {
     highests.push(max);
     lowests.push(min);
   }
-  console.log(highests);
-  console.log(lowests);
-  console.log(highstScore, lowestScore);
+  console.log('highests:', highests);
+  console.log('lowests:', lowests);
+  return [highstScore, lowestScore];
 }
 
 // console.log(breakingRecords(3, 4, 21, 36, 10, 28, 35, 5, 24, 42));
