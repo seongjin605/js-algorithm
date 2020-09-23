@@ -1,10 +1,24 @@
 function solution(priorities, location) {
-  var answer = 0;
+  const filtered = [];
 
-  answer = priorities.sort((a, b) => a - b);
-  console.log(answer);
+  let max = 0;
+  while (priorities.length > 0) {
+    max = Math.max.apply(Math, priorities);
+    const index = priorities.findIndex(val => val === max);
+    filtered.push(...priorities.splice(index, 1));
+  }
 
-  return answer;
+  console.log(filtered);
+
+  let targetIndex = 0;
+  filtered.forEach((val, index) => {
+    console.log(index);
+    if (index === location) {
+      targetIndex++;
+    }
+  });
+  return targetIndex;
 }
 
-solution([1, 1, 9, 1, 1, 1], 0);
+// console.log(solution([2, 1, 3, 2], 2));
+console.log(solution([1, 1, 9, 1, 1, 1], 0));
