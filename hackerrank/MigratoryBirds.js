@@ -30,3 +30,4 @@ function migratoryBirds(arr) {
 
 console.log(migratoryBirds([1, 4, 4, 4, 5, 3]));
 console.log(migratoryBirds([1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4]));
+console.log(migratoryBirds([1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4, 4]));
