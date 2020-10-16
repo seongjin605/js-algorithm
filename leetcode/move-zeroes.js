@@ -5,9 +5,10 @@
 var moveZeroes = function (nums) {
   const zeros = [];
   while (nums.includes(0)) {
-    const indexOfZero = nums.findIndex(val => val === 0); // 0의 인덱스를 반환
+    const indexOfZero = nums.findIndex(val => val === 0);
+    console.log('nums:', nums);
     if (indexOfZero !== -1) {
-      zeros.push(...nums.slice(indexOfZero, 1));
+      zeros.push(...nums.splice(indexOfZero, 1));
     }
   }
   nums.push(...zeros);
