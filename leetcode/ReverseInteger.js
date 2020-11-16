@@ -1,4 +1,5 @@
 /**
+ * Math.sign : 양수인지 음수인지 부호를 판단하는게 핵심
  * @param {number} x
  * @return {number}
  */
