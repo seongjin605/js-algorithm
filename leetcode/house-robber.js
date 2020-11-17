@@ -1,48 +1,30 @@
+// public int rob(int[] nums) {
+//   if (nums.length == 0) return 0;
+//   int prev1 = 0;
+//   int prev2 = 0;
+//   for (int num : nums) {
+//       int tmp = prev1;
+//       prev1 = Math.max(prev2 + num, prev1);
+//       prev2 = tmp;
+//   }
+//   return prev1;
+// }
+
 /**
  * @param {number[]} nums
  * @return {number}
  */
 var rob = function(nums) {
-  if (nums.length === 0) return [];
-  if (nums.length === 2) {
-    return Math.max.apply(Math, nums);
+  if (nums.length === 0) return 0;
+  let prev1 = 0;
+  let prev2 = 0;
+  for (let num of nums) {
+    console.log('num:', num);
+    let tmp = prev1;
+    prev1 = Math.max.apply(Math, [prev2 + num, prev1]);
+    prev2 = tmp;
   }
-  const safeValOfEvenIndex = nums
-    .map((val, index) => {
-      if (index % 2 === 0) {
-        return val;
-      }
-      return 0;
-    })
-    .reduce((previous, current) => previous + current);
-
-  console.log('safeValOfEvenIndex:', safeValOfEvenIndex);
-
-  const safeValOfOddIndex = nums
-    .map((val, index) => {
-      if (index % 2 === 1) {
-        return val;
-      }
-      return 0;
-    })
-    .reduce((previous, current) => previous + current);
-
-  console.log('safeValOfOddIndex:', safeValOfOddIndex);
-
-  const safeValOfEverySecondIndex = nums
-    .map((val, index) => {
-      if (index % 2 === 1) {
-        return val;
-      }
-      return 0;
-    })
-    .reduce((previous, current) => previous + current);
-
-  return Math.max.apply(Math, [safeValOfEvenIndex, safeValOfOddIndex]);
+  return prev1;
 };
 
-console.log(rob([2, 1, 1, 2])); // output: 4
-
-console.log(rob([1, 2]));
-console.log(rob([1, 2, 3, 1]));
-console.log(rob([2, 7, 9, 3, 1]));
+console.log(rob([1, 3, 1]));
