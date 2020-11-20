@@ -14,8 +14,12 @@ var decodeString = function (s) {
 
     // 숫자타입이면
     if (!isNanNumber) {
-      splitedArr.shift(); // 왼쪽 제거
-      splitedArr.pop(); // 오른쪽 제거
+      splitedArr.shift(); // 왼쪽 [ 제거
+
+      while (splitedArr.length > 0) {
+        const str = splitedArr.shift();
+        console.log('str:', str);
+      }
       console.log('splitedArr:', splitedArr);
     }
   }
