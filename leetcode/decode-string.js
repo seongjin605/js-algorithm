@@ -14,13 +14,20 @@ var decodeString = function (s) {
 
     // 숫자타입이면
     if (!isNanNumber) {
-      splitedArr.shift(); // 왼쪽 [ 제거
+      // splitedArr.shift(); // 왼쪽 [ 제거
 
       while (splitedArr.length > 0) {
         const str = splitedArr.shift();
+        if (str !== '[' && str !== ']') {
+          for (let i = 0; i < isNanNumber; i++) {
+            result.push(str);
+          }
+          continue;
+        }
         console.log('str:', str);
       }
       console.log('splitedArr:', splitedArr);
     }
   }
+  console.log('result:', result);
 };
