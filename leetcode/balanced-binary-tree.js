@@ -35,9 +35,4 @@ var isBalanced = function (root) {
       result.push(node.val);
     }
   }
-
-  console.log('leftCount:', leftCount);
-  console.log('rightCount:', rightCount);
-
-  console.log('result:', result);
 };
