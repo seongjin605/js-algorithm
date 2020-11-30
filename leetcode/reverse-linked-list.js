@@ -13,15 +13,16 @@ var reverseList = function (head) {
   if (!head) return;
   let temp = null;
 
-  const slow = head;
-  const fast = head;
-  // TODO walker && runner task 처리 예정
-  while (slow && fast) {
-    if (head.next) {
-      temp = head.next;
-      head.next = head;
-      continue;
+  let walker = head;
+  let runner = head;
+
+  while (runner) {
+    runner = runner.next;
+    if (runner) {
+      runner = runner.next;
+      walker = walker.next;
     }
   }
-  return temp;
+
+  return head;
 };
