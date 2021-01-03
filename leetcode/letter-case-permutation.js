@@ -1,31 +1,24 @@
-/**
- * @param {string} S
- * @return {string[]}
- */
-const letterCasePermutation = function (S) {
-  const arr = S.split('');
-  const ret = [];
-  backtrack(arr, ret, 0);
-  return ret;
+var letterCasePermutation = function (S) {
+  console.log('S:', S);
+  return permut(S, 0);
 };
 
-const backtrack = function (arr, ret, idx) {
-  if (idx === arr.length) {
-    ret.push(...arr);
+function permut(str, pos, out = [], curr = '') {
+  if (pos === str.length || curr.length === str.length) {
+    out.push(curr);
   } else {
-    const c = arr[idx];
-    if (isAlpha(c)) {
-      arr[idx] = c.toLowerCase();
-      backtrack(arr, ret, idx + 1);
-      arr[idx] = c.toUpperCase();
-      backtrack(arr, ret, idx + 1);
+    if (isAlpha(str[pos])) {
+      let up = curr + str[pos].toUpperCase();
+      let low = curr + str[pos].toLowerCase();
+      permut(str, pos + 1, out, up);
+      permut(str, pos + 1, out, low);
     } else {
-      backtrack(arr, ret, idx + 1);
+      permut(str, pos + 1, out, curr + str[pos]);
     }
   }
-};
+  return out;
+}
 
-const isAlpha = function (c) {
-  // TODO: 리턴 값에 입력받은 문자가 알파벳인지 체크하는 함수 구현.
-  return ('a'.charAt() >= c && 'z'.charAt() <= c) || ('A'.charAt() >= c && 'Z'.charAt() <= c);
-};
+function isAlpha(ch) {
+  return /[a-zA-Z]/i.test(ch);
+}
