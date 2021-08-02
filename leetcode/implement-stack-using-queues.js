@@ -1,3 +1,4 @@
+
 /**
  * Initialize your data structure here.
  */
@@ -61,3 +62,12 @@ MyStack.prototype.empty = function() {
  * var param_3 = obj.top()
  * var param_4 = obj.empty()
  */
+
+const obj = new MyStack();
+obj.push(1);
+obj.push(2);
+obj.push(3);
+
+console.log(obj.pop());
+console.log(obj.top());
+console.log(obj.empty());
