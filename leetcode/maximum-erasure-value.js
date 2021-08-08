@@ -24,3 +24,5 @@ var maximumUniqueSubarray = function (nums) {
   }
   return ans;
 };
+
+console.log(maximumUniqueSubarray([4, 2, 4, 5, 6]));
