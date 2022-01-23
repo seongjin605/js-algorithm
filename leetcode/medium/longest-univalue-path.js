@@ -12,8 +12,8 @@
  */
 var longestUnivaluePath = function (root) {
   let longest = 0;
-  const current = { val: 0 };
-  function dfs(node, level, current) {
+  const current = { val: 0, previous: null };
+  function dfs(node, current) {
     if (!node) return;
 
     if (node.val === current.val) {
@@ -21,9 +21,10 @@ var longestUnivaluePath = function (root) {
     }
     current.val = node.val;
 
-    const left = dfs(node.left, level, current);
-    const right = dfs(node.right, level, current);
+    dfs(node.left, current);
+    dfs(node.right, current);
+
     return longest;
   }
-  return dfs(root, 0, current);
+  return dfs(root, current);
 };
