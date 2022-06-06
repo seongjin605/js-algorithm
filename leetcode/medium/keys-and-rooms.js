@@ -22,3 +22,5 @@ var canVisitAllRooms = function (rooms) {
   }
   return true;
 };
+
+console.log(canVisitAllRooms([[1, 3], [3, 0, 1], [2], [0]]));
