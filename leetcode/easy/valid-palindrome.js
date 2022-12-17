@@ -17,12 +17,12 @@ var isPalindrome = function (s) {
   const tartgetString = [];
   for (let i = 0; i < s.length; i++) {
     if (isLetterOrInteger(s[i])) {
-      tartgetString.push(s[i]);
+      tartgetString.push(s[i].toLowerCase());
     }
   }
   console.log('tartgetString:', tartgetString);
   while (tartgetString.length > 1) {
-    if (tartgetString.shift().toLowerCase() !== tartgetString.pop().toLowerCase()) {
+    if (tartgetString.shift() !== tartgetString.pop()) {
       return false;
     }
   }
