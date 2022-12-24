@@ -1,23 +1,33 @@
-var longestPalindrome = function (s) {
-  let longest = '';
+var findAnagrams = function (s, p) {
+  let sLen = s.length;
+  let pLen = p.length;
+  let result = [];
 
-  for (let i = 0; i < s.length; i++) {
-    expandCheck(i, i);
-    expandCheck(i, i + 1);
+  let sArray = new Array(26).fill(0);
+  let pArray = new Array(26).fill(0);
+
+  for (let i = 0; i < pLen; i++) {
+    sArray[s.charCodeAt(i) - 97]++;
+    pArray[p.charCodeAt(i) - 97]++;
   }
 
-  function expandCheck(l, r) {
-    while (l >= 0 && r < s.length && s[l] === s[r]) {
-      if (r - l + 1 > longest.length) {
-        longest = s.slice(l, r + 1);
-      }
-      l--;
-      r++;
+  for (let i = 0; i < sLen; i++) {
+    if (isAnagram(sArray, pArray)) {
+      result.push(i);
     }
+    sArray[s.charCodeAt(i) - 97]--;
+    sArray[s.charCodeAt(i + pLen) - 97]++;
   }
-  console.log('count:', count);
-  return longest;
+
+  function isAnagram(sArray, pArray) {
+    for (let i = 0; i < pArray.length; i++) {
+      if (sArray[i] !== pArray[i]) {
+        return false;
+      }
+    }
+    return true;
+  }
+  return result;
 };
 
-//console.log(longestPalindrome('babad'));
-console.log(longestPalindrome('aaa'));
+console.log(findAnagrams('cbaebabacd', 'abc'));
